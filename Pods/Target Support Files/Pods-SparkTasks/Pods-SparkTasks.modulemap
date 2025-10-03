@@ -1,0 +1,6 @@
+framework module Pods_SparkTasks {
+  umbrella header "Pods-SparkTasks-umbrella.h"
+
+  export *
+  module * { export * }
+}
