@@ -13,11 +13,12 @@
 		74783A9B2E8FAD1400B39D5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74783A8D2E8FAD1400B39D5F /* AppDelegate.swift */; };
 		74783A9C2E8FAD1400B39D5F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74783A942E8FAD1400B39D5F /* SceneDelegate.swift */; };
 		74783AB42E8FAE7F00B39D5F /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74783AB32E8FAE7F00B39D5F /* StartView.swift */; };
+		74E0D72D2EAB6AA0000F66C4 /* InternetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E0D72B2EAB6AA0000F66C4 /* InternetViewController.swift */; };
+		74E0D72E2EAB6AA0000F66C4 /* OneSignalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E0D72A2EAB6AA0000F66C4 /* OneSignalService.swift */; };
+		74E0D72F2EAB6AA0000F66C4 /* LoaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E0D72C2EAB6AA0000F66C4 /* LoaderViewController.swift */; };
 		74E42D182E8FF8F0007C5714 /* OneSignalFramework in Frameworks */ = {isa = PBXBuildFile; productRef = 74E42D172E8FF8F0007C5714 /* OneSignalFramework */; };
 		74E42D1B2E8FF8FD007C5714 /* AppsFlyerLib in Frameworks */ = {isa = PBXBuildFile; productRef = 74E42D1A2E8FF8FD007C5714 /* AppsFlyerLib */; };
 		74E42D332E900320007C5714 /* CheckLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E42D242E900320007C5714 /* CheckLink.swift */; };
-		74E42D342E900320007C5714 /* InternetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E42D252E900320007C5714 /* InternetViewController.swift */; };
-		74E42D352E900320007C5714 /* LoaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E42D262E900320007C5714 /* LoaderViewController.swift */; };
 		74E42D362E900320007C5714 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E42D282E900320007C5714 /* ContentView.swift */; };
 		74E42D372E900320007C5714 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E42D292E900320007C5714 /* HomeView.swift */; };
 		74E42D382E900320007C5714 /* MotivationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E42D2A2E900320007C5714 /* MotivationModels.swift */; };
@@ -41,10 +42,11 @@
 		74783A922E8FAD1400B39D5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		74783A942E8FAD1400B39D5F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		74783AB32E8FAE7F00B39D5F /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
+		74E0D72A2EAB6AA0000F66C4 /* OneSignalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneSignalService.swift; sourceTree = "<group>"; };
+		74E0D72B2EAB6AA0000F66C4 /* InternetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetViewController.swift; sourceTree = "<group>"; };
+		74E0D72C2EAB6AA0000F66C4 /* LoaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderViewController.swift; sourceTree = "<group>"; };
 		74E42D1C2E8FF906007C5714 /* SparkTasks.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SparkTasks.entitlements; sourceTree = "<group>"; };
 		74E42D242E900320007C5714 /* CheckLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckLink.swift; sourceTree = "<group>"; };
-		74E42D252E900320007C5714 /* InternetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetViewController.swift; sourceTree = "<group>"; };
-		74E42D262E900320007C5714 /* LoaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderViewController.swift; sourceTree = "<group>"; };
 		74E42D282E900320007C5714 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		74E42D292E900320007C5714 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		74E42D2A2E900320007C5714 /* MotivationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotivationModels.swift; sourceTree = "<group>"; };
@@ -117,8 +119,9 @@
 			isa = PBXGroup;
 			children = (
 				74E42D242E900320007C5714 /* CheckLink.swift */,
-				74E42D252E900320007C5714 /* InternetViewController.swift */,
-				74E42D262E900320007C5714 /* LoaderViewController.swift */,
+				74E0D72A2EAB6AA0000F66C4 /* OneSignalService.swift */,
+				74E0D72B2EAB6AA0000F66C4 /* InternetViewController.swift */,
+				74E0D72C2EAB6AA0000F66C4 /* LoaderViewController.swift */,
 			);
 			path = LoadingView;
 			sourceTree = "<group>";
@@ -252,12 +255,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				74E42D332E900320007C5714 /* CheckLink.swift in Sources */,
-				74E42D342E900320007C5714 /* InternetViewController.swift in Sources */,
-				74E42D352E900320007C5714 /* LoaderViewController.swift in Sources */,
 				74E42D362E900320007C5714 /* ContentView.swift in Sources */,
 				74E42D372E900320007C5714 /* HomeView.swift in Sources */,
 				74E42D382E900320007C5714 /* MotivationModels.swift in Sources */,
 				74E42D392E900320007C5714 /* MotivationView.swift in Sources */,
+				74E0D72D2EAB6AA0000F66C4 /* InternetViewController.swift in Sources */,
+				74E0D72E2EAB6AA0000F66C4 /* OneSignalService.swift in Sources */,
+				74E0D72F2EAB6AA0000F66C4 /* LoaderViewController.swift in Sources */,
 				74E42D3A2E900320007C5714 /* NoteModels.swift in Sources */,
 				74E42D3B2E900320007C5714 /* NotesView.swift in Sources */,
 				74E42D3C2E900320007C5714 /* OnboardingView.swift in Sources */,
@@ -313,7 +317,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lar.sp4rkt4sks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -351,7 +355,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lar.sp4rkt4sks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;

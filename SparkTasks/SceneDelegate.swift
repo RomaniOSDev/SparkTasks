@@ -28,18 +28,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
     }
 
-    // 3. Явно указываем имена параметров для избежания неоднозначности
-    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        URLContexts.forEach { context in
-            AppsFlyerLib.shared().handleOpen(context.url, options: nil)
-        }
-    }
-
-    // 4. Аналогично для Universal Links
-    func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
-        AppsFlyerLib.shared().continue(userActivity, restorationHandler: nil)
-    }
-
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.

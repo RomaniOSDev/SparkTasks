@@ -2,17 +2,17 @@
 //  InternetViewController.swift
 //  SparkTasks
 //
-//  Created by Lars Jansenn on 03.10.2025.
+//  Created by Lars Jansenn on 24.10.2025.
 //
+
 
 import UIKit
 import WebKit
-import OneSignalFramework
 
 class WebviewVC: UIViewController, WKNavigationDelegate  {
     
-    private let oneSignalIDChecker = OneSignalIDChecker()
-
+    private let oneSignalService = OneSignalService.shared
+        
     func obtainCookies() {
         let standartStorage: UserDefaults = UserDefaults.standard
         let data: Data? = standartStorage.object(forKey: "cvcvcv") as? Data
@@ -48,7 +48,6 @@ class WebviewVC: UIViewController, WKNavigationDelegate  {
         super.viewDidLoad()
         addUI()
         obtainCookies()
-        onesignalInit()
         firemanWebviewForTerms.navigationDelegate = self
     }
 
@@ -64,19 +63,17 @@ class WebviewVC: UIViewController, WKNavigationDelegate  {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        oneSignalService.initializeIfNeeded()
+        oneSignalService.requestPermission()
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
             super.viewWillDisappear(animated)
-            oneSignalIDChecker.stopCheckingOneSignalID()
-        }
-    
-    private func onesignalInit() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.5) {
-            OneSignal.Notifications.requestPermission({ accepted in
-
-            }, fallbackToSettings: true)
             
         }
-    }
+    
     
     private func addUI() {
         view.addSubview(firemanWebviewForTerms)
@@ -128,26 +125,4 @@ struct SaveService {
     }
 }
 
-class OneSignalIDChecker {
-    
-    private var timer: Timer?
-    func startCheckingOneSignalID() {
-        stopCheckingOneSignalID()
-        timer = Timer.scheduledTimer(
-            timeInterval: 0.5,
-            target: self,
-            selector: #selector(printOneSignalID),
-            userInfo: nil,
-            repeats: true
-        )
-    }
-    func stopCheckingOneSignalID() {
-        timer?.invalidate()
-        timer = nil
-    }
-    
-    // Функция, которая будет вызываться таймером
-    @objc private func printOneSignalID() {
-        _ = OneSignal.User.onesignalId ?? "OneSignal ID не найден"
-    }
-}
+

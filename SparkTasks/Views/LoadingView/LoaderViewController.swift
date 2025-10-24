@@ -1,13 +1,12 @@
 //
-//  LoaderViewController.swift
+//  TaskDetailView.swift
 //  SparkTasks
 //
-//  Created by Lars Jansenn on 03.10.2025.
+//  Created by Lars Jansenn on 24.10.2025.
 //
 
 import UIKit
 import SwiftUI
-import OneSignalFramework
 import AppsFlyerLib
 
 class LoadingSplash: UIViewController {
@@ -33,6 +32,8 @@ class LoadingSplash: UIViewController {
         print("start setupUI")
         view.addSubview(loadingImage)
         loadingImage.image = UIImage(resource: .starticon)
+        loadingImage.contentMode = .scaleAspectFit
+        loadingImage.translatesAutoresizingMaskIntoConstraints = false
 
         view.addSubview(activityIndicator)
         
@@ -52,7 +53,7 @@ class LoadingSplash: UIViewController {
         activityIndicator.startAnimating()
 
         if let savedURL = UserDefaults.standard.string(forKey: "finalAppsflyerURL") {
-            print("✅ Using existing AppsFlyer data")
+            print("Using existing AppsFlyer data")
             appsFlyerDataReady()
         } else {
             print("⌛ Waiting for AppsFlyer data...")
@@ -67,7 +68,7 @@ class LoadingSplash: UIViewController {
             // Таймаут на случай, если данные так и не придут
             DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
                 if UserDefaults.standard.string(forKey: "finalAppsflyerURL") == nil {
-                    print("⚠️ Timeout waiting for AppsFlyer. Proceeding with fallback.")
+                    print("Timeout waiting for AppsFlyer. Proceeding with fallback.")
                     self.appsFlyerDataReady()
                 }
             }
@@ -111,42 +112,13 @@ class LoadingSplash: UIViewController {
         let base = "https://appios92.site/pYgdShY3?"
         if let savedURL = UserDefaults.standard.string(forKey: "finalAppsflyerURL") {
             let full = base + savedURL
-            print("✅ Generated tracking link: \(full)")
+            print("Generated tracking link: \(full)")
             return full
         } else {
-            print("⚠️ AppsFlyer data not available, returning base URL only")
+            print("AppsFlyer data not available, returning base URL only")
             return base
         }
     }
 }
 
-
-extension AppDelegate: AppsFlyerLibDelegate {
-    func onConversionDataSuccess(_ data: [AnyHashable : Any]) {
-         var finalURL = ""
-        let appsflyerID = AppsFlyerLib.shared().getAppsFlyerUID()
-            print("📬 Conversion: \(data)")
-            if let dict = data as? [String: Any], let campaign = dict["campaign"] as? String {
-                let extra = campaign
-                    .components(separatedBy: "||")
-                    .compactMap { pair -> String? in
-                        let p = pair.split(separator: "="); guard p.count == 2 else { return nil }
-                        return "&\(p[0])=\(p[1])"
-                    }
-                    .joined()
-                print("🧩 Extra = \(extra)")
-               finalURL += "appsflyer_id=\(appsflyerID)\(extra)"
-            } else {
-                print("🌱 Organic")
-                finalURL += "appsflyer_id=\(appsflyerID)&source=organic"
-            }
-        print("✅ Final URL: \(finalURL)")
-        UserDefaults.standard.set(finalURL, forKey: "finalAppsflyerURL")
-        NotificationCenter.default.post(name: Notification.Name("AppsFlyerDataReceived"), object: nil)
-        }
-
-    func onConversionDataFail(_ error: Error) {
-        print("❌ Conversion data error: \(error.localizedDescription)")
-    }
-}
 
